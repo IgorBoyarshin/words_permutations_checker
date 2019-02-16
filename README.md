@@ -5,7 +5,7 @@ Given an array of arrays of chars, find all valid words in which the first lette
 vec[
     "cb",
     "aoi",
-    "wt",
-];
+    "wt"
+]
 =>
 vec["cat", "cow", "bat", "bow", "bit"]
