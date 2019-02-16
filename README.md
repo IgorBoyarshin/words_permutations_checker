@@ -3,9 +3,9 @@ Given an array of arrays of chars, find all valid words in which the first lette
 
 # Example
 vec[
-    "cb",
-    "aoi",
-    "wt"
+    "bc",
+    "aio",
+    "tw"
 ]
 =>
-vec["cat", "cow", "bat", "bow", "bit"]
+vec["bat", "baw", "bit", "bot", "bow", "cat", "caw", "cit", "cot", "cow"]

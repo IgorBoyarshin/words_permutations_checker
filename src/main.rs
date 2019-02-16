@@ -9,16 +9,15 @@ fn main() -> std::io::Result<()> {
     let mut contents = String::new();
     buf_reader.read_to_string(&mut contents)?;
 
+    // Input
     let dictionary: HashSet<_> = contents.lines().collect();
     let circles: Vec<Vec<char>> = vec![
-        "rlkdt".chars().collect(),
-        "slonra".chars().collect(),
-        "oeaiu".chars().collect(),
-        "bw".chars().collect(),
+        "cb".chars().collect(),
+        "aoi".chars().collect(),
+        "wt".chars().collect(),
     ];
 
-
-    // Generate words by walking from outside the circle
+    // Generate words by walking forwards
     let mut words = circles.into_iter().fold(vec!["".to_string()], |words: Vec<String>, chars| {
         chars.into_iter()
             .map(|c| words.clone().into_iter()
@@ -26,11 +25,14 @@ fn main() -> std::io::Result<()> {
                  .collect::<Vec<String>>())
             .flatten().collect()
     });
-    // Append reversed words (as if walking from inside the circle)
-    words.append(
-        &mut words.clone().into_iter()
-        .map(|word| word.chars().rev().collect())
-        .collect());
+
+    // Append reversed words (as if by walking backwards through the outter array), if needed
+    // words.append(
+    //     &mut words.clone().into_iter()
+    //     .map(|word| word.chars().rev().collect())
+    //     .collect());
+
+    // To have sorted output
     words.sort();
 
     for word in words.into_iter() {
